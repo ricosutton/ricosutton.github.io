@@ -8,12 +8,6 @@
 <!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 
 	<!-- BEGIN CSS -->
-	<css>
-- `left`
-- `top` 
-- `width`
-- `height`
-	</css>
 	<style>
 		/* TODO 1 */
 		.box {
@@ -26,19 +20,14 @@
 			position: absolute;
 			top: 100px;
 			left: 0px;
+		
 		}
-	</style>
-	<style>
-		body {
-  background-image: url("img_tree.gif"), url("paper.gif");
-  background-color: #cccccc;
-}
 	</style>
 
 </head>
 <body class="board">
+	<!-- HTML for the box -->
 	<div class="box">?</div>
-</body>
 
 	<!-- BEGIN JAVASCRIPT -->
 	<script>
@@ -51,43 +40,34 @@
 			var boardWidth = jQuery('.board').width();
 	
 			// TODO 2 - Variable declarations 
-var position;       // reference for the x-coordinate of our box
-var points;         // reference for the points displayed on the box
-var speed;          // reference for how fast the box moves
-var direction       // reference for the direction the box is moving: 1 means right, -1 means left
-box.css('left', position);      // moves the box to the x-coordinate of <position> 
-box.text(points);               // changes the text of the box to display the value of <points>
+		var position =0;   
+		var points =0;     
+		var speed =10;       
+		var direction =1;  
 
-position = 0;
-points = 0;
-speed = 10;
-direction = 1;
 			
-			function update() {
-				// TODO 3 / 6 / 7 / 8
-			function update() {
-    position += speed * direction;    // increment position by speed on every update
-    console.log("new position: " + position);
-    
-    if(position > boardWidth) {
-        console.log("Right Wall Hit");
-        direction = -1;
-        console.log(direction);
-    }
-    
-    box.css('left', position);      // set the 'left' CSS property of the box to the new value of position
+			function update() { position += speed*direction;   
+ console.log("new position: " + position);if(position > boardWidth) {
+    console.log("Right Wall Hit"); 
+    direction=-1
 }
-             
-         	};
+ box.css('left', position);
+				// TODO 3 / 6 / 7 / 8
+					 if (position === 0) {
+    			console.log("Right Wall Hit");
+        		direction = 1;
+    }
+				
+			};
 
 
 			
-			function handleBoxClick() {
+			function handleBoxClick() {points += 1;           
+ box.text(points);  position = 0;         
+  speed += 3;      
+
 				// TODO 4 / 5
-			 points += 1;           // increase the point total
-             box.text(points);      // update the new points total displayed by the box	
-			 position = 0;         // reset the position of the box to 0
-             speed += 3;    // increase the speed of the box on every click	
+		
 			};
 
 
