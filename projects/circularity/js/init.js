@@ -61,18 +61,22 @@ for (var i = 0; i <= 100 ; i++) {
             circle.y;
             
             // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
-            
+            if(circle.x > canvas.width){
+                circle.x = 0
+            }
             // TODO 5a) if the circle has gone past of the LEFT side of the screen then place it on the RIGHT
-            
-                
-             
+            else if(circle.x < 0){
+                circle.x = canvas.width
+            }
 
             // TODO 5b) if the circle has gone past of the TOP side of the screen then place it on the BOTTOM
-           
-                
-            
+           if(circle.y > canvas.height){
+               circle.y = 0
+           }
             // TODO 5c) if the circle has gone past of the BOTTOM side of the screen then place it OFF-SCREEN TOP
-            
+            else if(circle.y < 0){
+                circle.y = canvas.height
+            }
             // YOUR TODO 5 CODE ENDS HERE //////////////////////////
         };
     
