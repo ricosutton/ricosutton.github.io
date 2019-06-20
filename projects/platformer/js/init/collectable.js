@@ -40,6 +40,7 @@
         collectable.create(type.steve, 500, 680, 5, 1.5)
         collectable.create(type.steve, 100, 420, 4, 2.8)
         collectable.create(type.steve, 600, 830, 2, 8.3)
+        collectable.create(type.steve, 230, 450, 6, 2.4)
         
         
         // ALL YOUR CODE GOES ABOVE HERE ///////////////////////////////////////
